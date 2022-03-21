@@ -93,10 +93,7 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/*
-* Terminal colors (16 first used in escape sequence)
-* Template taken from spacecamp
-*/
+/* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
   /* 8 normal colors */
@@ -139,7 +136,6 @@ static unsigned int defaultcs = 257;
  */
 static unsigned int defaultitalic = 7;
 static unsigned int defaultunderline = 7;
-
 /*
  * Default shape of cursor
  * 2: Block ("█")
