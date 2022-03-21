@@ -93,46 +93,52 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* Terminal colors (16 first used in escape sequence) */
+/*
+* Terminal colors (16 first used in escape sequence)
+* Template taken from spacecamp
+*/
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+  /* 8 normal colors */
+  [0] = "#3b3b4d", /* black   */
+  [1] = "#EBB9B9", /* red     */
+  [2] = "#B1DBA4", /* green   */
+  [3] = "#E6DFB8", /* yellow  */
+  [4] = "#B8DEEB", /* blue    */
+  [5] = "#F6BBE7", /* magenta */
+  [6] = "#CDDBF9", /* cyan    */
+  [7] = "#C6D0E9", /* white   */
 
-	[255] = 0,
+  /* 8 bright colors */
+  [8]  = "#3b3b4d", /* black   */
+  [9]  = "#cc9b9d", /* red     */
+  [10] = "#a3ccad", /* green   */
+  [11] = "#d1ba97", /* yellow  */
+  [12] = "#B8C9EA", /* blue    */
+  [13] = "#c497b3", /* magenta */
+  [14] = "#95C2D1", /* cyan    */
+  [15] = "#63718b", /* white   */
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+  /* special colors */
+  [256] = "#20202A", /* background */
+  [257] = "#63718B", /* foreground */
 };
-
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+static unsigned int defaultfg = 257;
+static unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+static unsigned int defaultitalic = 7;
+static unsigned int defaultunderline = 7;
 
 /*
  * Default shape of cursor
